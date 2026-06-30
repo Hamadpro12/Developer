@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">ShopEase</div>
+
+        <button class="menu-btn">☰</button>
+
+        <nav>
+           <ul class="nav-links">
+        <li><a href="Page.html#home">Home</a></li>
+        <li><a href="Page.html#products">Products</a></li>
+        <li><a href="Page.html#about">About</a></li>
+        <li><a href="Page.html#contact">Contact</a></li>
+        <li><a href="page.html#register.html" class="register-btn">Registration</a></li>
+        <li><a href="page.html#todo.html">To-Do List</a></li>
+        </ul>
+        </nav>
+    </header>
+
+    <!-- Registration Form -->
+    <div class="form-container">
+
+        <h2>User Registration</h2>
+
+        <form id="registrationForm">
+
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="fullname" placeholder="Enter Full Name">
+                <small class="error" id="nameError"></small>
+            </div>
+
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" id="email" placeholder="Enter Email Address">
+                <small class="error" id="emailError"></small>
+            </div>
+
+            <div class="form-group">
+                <label>Mobile Number</label>
+                <input type="text" id="mobile" placeholder="Enter Mobile Number">
+                <small class="error" id="mobileError"></small>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="Enter Password">
+                <small class="error" id="passwordError"></small>
+            </div>
+
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" id="confirmPassword" placeholder="Confirm Password">
+                <small class="error" id="confirmPasswordError"></small>
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+
+                <div class="gender-group">
+                    <label><input type="radio" name="gender" value="Male"> Male</label>
+                    <label><input type="radio" name="gender" value="Female"> Female</label>
+                </div>
+
+                <small class="error" id="genderError"></small>
+            </div>
+
+            <div class="form-group">
+                <label>City</label>
+
+                <select id="city">
+                    <option value="">Select City</option>
+                    <option>Pune</option>
+                    <option>Mumbai</option>
+                    <option>Delhi</option>
+                    <option>Bangalore</option>
+                    <option>Kolkata</option>
+                </select>
+
+                <small class="error" id="cityError"></small>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Register
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 ShopEase. All Rights Reserved.</p>
+    </footer>
+
+    <script src="controler.js"></script>
+
+</body>
+</html>

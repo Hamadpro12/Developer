@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEase</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">ShopEase</div>
+
+        <button class="menu-btn">☰</button>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                 <li><a href="Todo.html" class="todo-btn" >To-Do List</a></li><!--target="_blank" use
+                 when we new tab serate tab for this -->
+                <li><a href="register.html" class="register-btn">Registration</a></li>
+                <li><a href="product.html" class="register-btn">Product Listing</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Discover Amazing Products</h1>
+        <p>Shop the latest gadgets and accessories at great prices.</p>
+        <a href="#products" class="btn">Shop Now</a>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="products" id="products">
+        <h2>Featured Products</h2>
+
+        <div class="product-grid">
+
+            <div class="card">
+                <img src="headphone.jpg">
+                <h3>Wireless Headphones</h3>
+                <p>₹2,999</p>
+                <button>Buy Now</button>
+            </div>
+
+            <div class="card">
+                <img src="watch.webp" alt="Watch">
+                <h3>Smart Watch</h3>
+                <p>₹4,499</p>
+                <button>Buy Now</button>
+            </div>
+
+            <div class="card">
+                <img src="speaker.jpg" alt="Speaker">
+                <h3>Bluetooth Speaker</h3>
+                <p>₹1,999</p>
+                <button>Buy Now</button>
+            </div>
+
+            <div class="card">
+                <img src="mouse.webp" alt="Mouse">
+                <h3>Gaming Mouse</h3>
+                <p>₹1,299</p>
+                <button>Buy Now</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <h2>About Us</h2>
+        <p>
+            ShopEase is a trusted online shopping platform offering quality
+            products, secure payments, and fast delivery services.
+        </p>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+
+            <input type="email" id="email" placeholder="Your Email" required>
+
+            <textarea id="message" rows="5" placeholder="Your Message"></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 ShopEase. All Rights Reserved.</p>
+    </footer>
+
+    <script src="controler.js"></script>
+</body>
+</html>

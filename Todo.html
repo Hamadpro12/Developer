@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">My Store</div>
+         <nav>
+            <ul class="nav-links">
+                <li><a href="Page.html#home">Home</a></li>
+                <li><a href="Page.html#products">Products</a></li>
+                <li><a href="Page.html#about">About</a></li>
+                <li><a href="Page.html#contact">Contact</a></li>
+                 <li><a href="todo.html" class="todo-btn" >To-Do List</a></li><!--target="_blank" use
+                 when we new tab serate tab for this-->
+                <li><a href="page.html#register.html" class="register-btn">Registration</a></li> 
+            </ul>
+        </nav>
+    </header>
+
+    <section class="todo-container">
+        <h1>To-Do List Application</h1>
+
+        <div class="input-section">
+            <input type="text" id="taskInput" placeholder="Enter a task">
+            <button onclick="addTask()">Add Task</button>
+        </div>
+
+        <p id="error"></p>
+
+        <div class="task-sections">
+
+            <div class="pending">
+                <h2>Pending Tasks</h2>
+                <ul id="pendingTasks"></ul>
+            </div>
+
+            <div class="completed">
+                <h2>Completed Tasks</h2>
+                <ul id="completedTasks"></ul>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 My Store. All Rights Reserved.</p>
+    </footer>
+
+    <script src="controler.js"></script>
+
+</body>
+</html>

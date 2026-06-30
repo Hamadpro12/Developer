@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">ShopEase</div>
+
+        <button class="menu-btn">☰</button>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="Page.html">Home</a></li>
+                <li><a href="Page.html#products">Products</a></li>
+                <li><a href="Page.html#about">About</a></li>
+                <li><a href="Page.html#contact">Contact</a></li>
+                <li><a href="register.html" class="register-btn">Registration</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Registration Details -->
+    <!-- <div class="form-container">
+
+        <h2>Registration Successful</h2>
+
+        <p><strong>Full Name:</strong> <span id="showName"></span></p>
+
+        <p><strong>Email:</strong> <span id="showEmail"></span></p>
+
+        <p><strong>Mobile:</strong> <span id="showMobile"></span></p>
+
+        <p><strong>Gender:</strong> <span id="showGender"></span></p>
+
+        <p><strong>City:</strong> <span id="showCity"></span></p>
+
+        <br>
+
+        <a href="Page.html" class="btn">Back to Home</a>
+
+    </div> -->
+    <main class="success-page">
+
+    <div class="form-container">
+
+        <h2>Registration Successful</h2>
+
+        <p><strong>Full Name:</strong> <span id="showName"></span></p>
+        <p><strong>Email:</strong> <span id="showEmail"></span></p>
+        <p><strong>Mobile:</strong> <span id="showMobile"></span></p>
+        <p><strong>Gender:</strong> <span id="showGender"></span></p>
+        <p><strong>City:</strong> <span id="showCity"></span></p>
+
+        <div class="home-btn-container">
+            <a href="Page.html" class="btn">Back to Home</a>
+        </div>
+
+    </div>
+
+</main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 ShopEase. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById("showName").textContent =
+            localStorage.getItem("fullname");
+
+        document.getElementById("showEmail").textContent =
+            localStorage.getItem("email");
+
+        document.getElementById("showMobile").textContent =
+            localStorage.getItem("mobile");
+
+        document.getElementById("showGender").textContent =
+            localStorage.getItem("gender");
+
+        document.getElementById("showCity").textContent =
+            localStorage.getItem("city");
+    </script>
+
+    <script src="controler.js"></script>
+
+</body>
+</html>

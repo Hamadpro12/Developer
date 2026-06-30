@@ -1,0 +1,756 @@
+/* =============================================================
+   STYLE.CSS — My Store
+   Sections:
+     1.  Global Reset
+     2.  Header & Navigation
+     3.  Hero Section
+     4.  Search & Filter  ← newly added
+     5.  Product Grid & Cards
+     6.  About Section
+     7.  Contact Form
+     8.  Registration Page
+     9.  Success Page
+     10. To-Do Page
+     11. Footer
+     12. Mobile Responsive
+   ============================================================= */
+
+
+/* -------------------------------------------------------------
+   1. GLOBAL RESET
+   ------------------------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #f5f5f5;
+}
+
+
+/* -------------------------------------------------------------
+   2. HEADER & NAVIGATION
+   ------------------------------------------------------------- */
+
+header {
+    background: #222;
+    color: #fff;
+    padding: 15px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 5px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-links li {
+    margin-left: 10px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff9800;
+}
+
+/* Register button */
+.register-btn {
+    background: #ff9800;
+    color: white !important;
+    padding: 7px 14px;
+    border-radius: 5px;
+}
+
+.register-btn:hover {
+    background: #e68900;
+    color: white !important;
+}
+
+/* Todo, Product Listing, Cart nav buttons */
+.todo-btn,
+.product-btn,
+.cart-btn {
+    background: #444;
+    color: white !important;
+    padding: 7px 14px;
+    border-radius: 5px;
+}
+
+.todo-btn:hover,
+.product-btn:hover,
+.cart-btn:hover {
+    background: #ff9800;
+    color: white !important;
+}
+
+/* Hamburger button (hidden on desktop) */
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+/* -------------------------------------------------------------
+   3. HERO SECTION
+   ------------------------------------------------------------- */
+
+.hero {
+    height: 60vh;
+    background: linear-gradient(135deg, #222 0%, #444 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background: #ff9800;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #e68900;
+}
+
+
+/* -------------------------------------------------------------
+   4. SEARCH & FILTER SECTION
+   The main bug fix — this section had NO styles at all.
+   ------------------------------------------------------------- */
+
+.search-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 30px 8%;
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    flex-wrap: wrap;
+}
+
+/* Search input */
+.search-section input[type="text"] {
+    width: 380px;
+    max-width: 100%;
+    padding: 12px 18px;
+    font-size: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background: #fafafa;
+    color: #222;
+}
+
+.search-section input[type="text"]::placeholder {
+    color: #aaa;
+}
+
+.search-section input[type="text"]:focus {
+    border-color: #ff9800;
+    box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.15);
+    background: #fff;
+}
+
+/* Category dropdown */
+.search-section select {
+    width: 200px;
+    max-width: 100%;
+    padding: 12px 16px;
+    font-size: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    background: #fafafa;
+    color: #222;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-section select:focus {
+    border-color: #ff9800;
+    box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.15);
+    background-color: #fff;
+}
+
+
+/* -------------------------------------------------------------
+   5. PRODUCT GRID & CARDS
+   Fixed: these were inside @media(max-width:768px) by mistake,
+   so they only applied on mobile. Now correctly at global scope.
+   ------------------------------------------------------------- */
+
+.products {
+    padding: 50px 8%;
+    flex: 1;
+}
+
+.products h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 32px;
+    color: #222;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* Product Card */
+.card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Product Image */
+.card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+/* Product Name */
+.card h3 {
+    margin: 15px 10px 8px;
+    color: #222;
+    font-size: 17px;
+}
+
+/* Product Price */
+.price {
+    color: #ff5722;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Category Badge */
+.category {
+    display: inline-block;
+    background: #007bff;
+    color: #fff;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+/* Add to Cart Button */
+.card button {
+    width: 90%;
+    margin-bottom: 20px;
+    padding: 11px;
+    background: #222;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.3s;
+}
+
+.card button:hover {
+    background: #ff9800;
+}
+
+
+/* -------------------------------------------------------------
+   6. ABOUT SECTION
+   ------------------------------------------------------------- */
+
+.about {
+    background: #f8f8f8;
+    padding: 60px 8%;
+    text-align: center;
+}
+
+
+/* -------------------------------------------------------------
+   7. CONTACT FORM
+   ------------------------------------------------------------- */
+
+.contact {
+    padding: 60px 8%;
+}
+
+.contact h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    max-width: 500px;
+    margin: auto;
+}
+
+input:not([type="radio"]),
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input:not([type="radio"]):focus,
+textarea:focus {
+    border-color: #ff9800;
+}
+
+form button {
+    width: 100%;
+    padding: 12px;
+    background: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background: #e68900;
+}
+
+
+/* -------------------------------------------------------------
+   8. REGISTRATION PAGE
+   ------------------------------------------------------------- */
+
+.form-container {
+    max-width: 600px;
+    width: 90%;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #222;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #ff9800;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background: #e68900;
+}
+
+/* Validation error text */
+.error {
+    color: red;
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+/* Gender radio buttons */
+.gender-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.gender-group label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: normal;
+}
+
+.gender-group input[type="radio"] {
+    width: auto;
+    margin: 0;
+}
+
+
+/* -------------------------------------------------------------
+   9. SUCCESS PAGE
+   ------------------------------------------------------------- */
+
+.success-page {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.form-container p {
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+.form-container strong {
+    color: #222;
+}
+
+.home-btn-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+/* -------------------------------------------------------------
+   10. TO-DO PAGE
+   ------------------------------------------------------------- */
+
+.todo-container {
+    max-width: 1000px;
+    width: 90%;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.todo-container h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #222;
+}
+
+/* Input row */
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.input-section input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-section input:focus {
+    border-color: #ff9800;
+}
+
+.input-section button {
+    padding: 12px 20px;
+    background: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.3s;
+}
+
+.input-section button:hover {
+    background: #e68900;
+}
+
+/* Error message */
+#error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Two-column layout */
+.task-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.pending,
+.completed {
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.pending h2 {
+    color: #ff9800;
+    margin-bottom: 15px;
+}
+
+.completed h2 {
+    color: #28a745;
+    margin-bottom: 15px;
+}
+
+.pending ul,
+.completed ul {
+    list-style: none;
+}
+
+.pending li,
+.completed li {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.completed li span {
+    text-decoration: line-through;
+    color: gray;
+}
+
+/* Action buttons */
+.actions {
+    display: flex;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+.actions button {
+    border: none;
+    padding: 6px 10px;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.3s;
+}
+
+.edit     { background: #007bff; }
+.complete { background: #28a745; }
+.delete   { background: #dc3545; }
+
+.edit:hover     { background: #0056b3; }
+.complete:hover { background: #218838; }
+.delete:hover   { background: #c82333; }
+
+
+/* -------------------------------------------------------------
+   11. FOOTER
+   ------------------------------------------------------------- */
+
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+}
+
+
+/* -------------------------------------------------------------
+   12. MOBILE RESPONSIVE
+   Fixed: removed all incorrectly nested @media blocks.
+   Each section now has its own clean @media query.
+   ------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+    /* --- Header --- */
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        background: #222;
+        padding: 20px;
+        gap: 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 8px 0;
+    }
+
+    /* --- Hero --- */
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    /* --- Search & Filter --- */
+    .search-section {
+        flex-direction: column;
+        padding: 20px 5%;
+        gap: 12px;
+    }
+
+    .search-section input[type="text"],
+    .search-section select {
+        width: 100%;
+    }
+
+    /* --- Product Grid --- */
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .products h2 {
+        font-size: 26px;
+    }
+
+    /* --- Registration --- */
+    .form-container {
+        width: 95%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .gender-group {
+        gap: 10px;
+    }
+
+    /* --- To-Do --- */
+    .task-sections {
+        grid-template-columns: 1fr;
+    }
+
+    .input-section {
+        flex-direction: column;
+    }
+
+    .input-section button {
+        width: 100%;
+    }
+
+    .pending li,
+    .completed li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .actions {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+}
