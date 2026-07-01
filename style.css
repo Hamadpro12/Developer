@@ -4,7 +4,7 @@
      1.  Global Reset
      2.  Header & Navigation
      3.  Hero Section
-     4.  Search & Filter  ← newly added
+     4.  Search & Filter
      5.  Product Grid & Cards
      6.  About Section
      7.  Contact Form
@@ -12,7 +12,8 @@
      9.  Success Page
      10. To-Do Page
      11. Footer
-     12. Mobile Responsive
+     12. Shopping Cart Page  ← NEW
+     13. Mobile Responsive
    ============================================================= */
 
 
@@ -171,7 +172,6 @@ header {
 
 /* -------------------------------------------------------------
    4. SEARCH & FILTER SECTION
-   The main bug fix — this section had NO styles at all.
    ------------------------------------------------------------- */
 
 .search-section {
@@ -239,8 +239,6 @@ header {
 
 /* -------------------------------------------------------------
    5. PRODUCT GRID & CARDS
-   Fixed: these were inside @media(max-width:768px) by mistake,
-   so they only applied on mobile. Now correctly at global scope.
    ------------------------------------------------------------- */
 
 .products {
@@ -660,10 +658,302 @@ footer {
 }
 
 
+/* =============================================================
+   12. SHOPPING CART PAGE  ← NEW SECTION
+   ============================================================= */
+
+/* --- Cart Hero Banner --- */
+.cart-hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+    text-align: center;
+    padding: 50px 20px 40px;
+}
+
+.cart-hero h1 {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+}
+
+.cart-hero p {
+    color: #bbb;
+    font-size: 15px;
+}
+
+/* --- Two-column layout: items LEFT, summary RIGHT --- */
+.cart-page {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    max-width: 1200px;
+    width: 92%;
+    margin: 35px auto 50px;
+    flex: 1;
+}
+
+/* ==========================================
+   LEFT COLUMN — cart item list
+   ========================================== */
+
+.cart-left {
+    flex: 1;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+/* Table header row */
+.cart-table-header {
+    display: grid;
+    grid-template-columns: 2.8fr 1fr 1.4fr 1fr 0.6fr;
+    padding: 15px 22px;
+    background: #222;
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Single cart item row */
+.cart-item {
+    display: grid;
+    grid-template-columns: 2.8fr 1fr 1.4fr 1fr 0.6fr;
+    align-items: center;
+    padding: 18px 22px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item:hover {
+    background: #fffbf5;
+}
+
+/* Product cell: image + name + category badge */
+.item-product {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.item-product img {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    flex-shrink: 0;
+}
+
+.item-name {
+    font-weight: bold;
+    color: #222;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.item-category {
+    display: inline-block;
+    background: #e8f4ff;
+    color: #007bff;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+/* Price cell */
+.item-price {
+    color: #555;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* Quantity selector */
+.qty-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.qty-btn {
+    width: 32px;
+    height: 32px;
+    border: 2px solid #ddd;
+    background: #f8f8f8;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    line-height: 1;
+}
+
+.qty-btn:hover {
+    background: #ff9800;
+    color: #fff;
+    border-color: #ff9800;
+}
+
+.qty-num {
+    min-width: 32px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: #222;
+}
+
+/* Line total */
+.item-total {
+    font-weight: bold;
+    color: #ff5722;
+    font-size: 16px;
+}
+
+/* Remove button */
+.item-remove {
+    background: none;
+    border: 2px solid #ffcdd2;
+    color: #dc3545;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.item-remove:hover {
+    background: #dc3545;
+    color: #fff;
+    border-color: #dc3545;
+}
+
+/* Empty cart state */
+.empty-msg {
+    text-align: center;
+    padding: 70px 20px;
+    color: #999;
+}
+
+.empty-msg p {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.empty-msg .btn {
+    font-size: 15px;
+    padding: 12px 28px;
+}
+
+/* ==========================================
+   RIGHT COLUMN — order summary
+   ========================================== */
+
+.cart-right {
+    width: 320px;
+    flex-shrink: 0;
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 90px;  /* stays visible while scrolling */
+}
+
+.cart-right h2 {
+    font-size: 18px;
+    color: #222;
+    margin-bottom: 22px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+/* Summary rows */
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    font-size: 15px;
+    color: #555;
+}
+
+/* Discount row in green */
+.discount-line {
+    color: #28a745;
+    font-weight: 500;
+}
+
+/* Dashed divider before grand total */
+.summary-divider {
+    border: none;
+    border-top: 2px dashed #eee;
+    margin: 16px 0;
+}
+
+/* Grand total row */
+.summary-grand {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 24px;
+}
+
+/* Checkout button */
+.checkout-btn {
+    width: 100%;
+    padding: 14px;
+    background: #ff9800;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.15s;
+    margin-bottom: 14px;
+    letter-spacing: 0.3px;
+}
+
+.checkout-btn:hover {
+    background: #e68900;
+    transform: translateY(-2px);
+}
+
+.checkout-btn:active {
+    transform: translateY(0);
+}
+
+/* Continue shopping link */
+.continue-link {
+    display: block;
+    text-align: center;
+    color: #888;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.continue-link:hover {
+    color: #ff9800;
+}
+
+
 /* -------------------------------------------------------------
-   12. MOBILE RESPONSIVE
-   Fixed: removed all incorrectly nested @media blocks.
-   Each section now has its own clean @media query.
+   13. MOBILE RESPONSIVE
    ------------------------------------------------------------- */
 
 @media (max-width: 768px) {
@@ -752,5 +1042,83 @@ footer {
     .actions {
         width: 100%;
         flex-wrap: wrap;
+    }
+
+    /* --- Shopping Cart (mobile) --- */
+    .cart-hero h1 {
+        font-size: 1.6rem;
+    }
+
+    /* Stack left/right columns vertically on mobile */
+    .cart-page {
+        flex-direction: column;
+        gap: 20px;
+        width: 95%;
+        margin: 20px auto 40px;
+    }
+
+    /* Summary panel takes full width */
+    .cart-right {
+        width: 100%;
+        position: static;
+    }
+
+    /* Hide desktop table header on mobile */
+    .cart-table-header {
+        display: none;
+    }
+
+    /* Each cart item becomes a stacked card */
+    .cart-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        position: relative;
+        padding: 16px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    /* Smaller product image on mobile */
+    .item-product img {
+        width: 58px;
+        height: 58px;
+    }
+
+    /* Auto-label Price and Total cells on mobile */
+    .item-price::before {
+        content: "Price: ";
+        color: #aaa;
+        font-weight: normal;
+        font-size: 13px;
+    }
+
+    .item-total::before {
+        content: "Total: ";
+        color: #aaa;
+        font-weight: normal;
+        font-size: 13px;
+    }
+
+    /* Pin remove button to top-right corner */
+    .item-remove {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        padding: 4px 8px;
+        font-size: 13px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cart-hero h1 {
+        font-size: 1.3rem;
+    }
+
+    .summary-grand {
+        font-size: 17px;
     }
 }
